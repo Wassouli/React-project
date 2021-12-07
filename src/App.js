@@ -57,21 +57,14 @@ class App extends React.Component {
   }
   render() {
     const { characters } = this.state
-
-    
-
-   
-  
-
-
-return (
-  <div>
-    <h1>My job applications List</h1>
-    <p>"There is no failure except in no longer trying"</p>
-    <Table characterData={characters} removeCharacter={this.removeCharacter} />
-  </div>
-)
-}
+    return (
+      <div>
+        <h1>My job applications List</h1>
+        <p>"There is no failure except in no longer trying"</p>
+        <Table characterData={characters} removeCharacter={this.removeCharacter} />
+      </div>
+    )
+  }
 }
   
 export default App
