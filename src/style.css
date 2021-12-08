@@ -26,8 +26,9 @@ html {
   -webkit-text-size-adjust: 100%;
   /* 2 */
 }
-:root{ margin: '8px' !important;}
-
+:root{ margin: '8px' !important;
+  background-color: #222629;}
+#root{background-color: #222629;}
 /* Sections
    ========================================================================== */
 /**
@@ -51,6 +52,7 @@ main {
 h1 {
   font-size: 2em;
   margin: 0.67em 0;
+  color: white !important;
 }
 
 /* Grouping content
@@ -121,7 +123,22 @@ samp {
   font-size: 1em;
   /* 2 */
 }
-
+div#form {
+  margin: 71px;
+}
+p{
+  text-align: center;
+  margin-top: 1.7em !important;
+  font-family: cursive;
+  color: #86C237;
+  font-size:1.2rem;
+}
+label.col-sm-1 {
+  line-height: 2.6;
+}
+div#table {
+  margin: 50px;
+}
 /**
  * Add the correct font size in all browsers.
  */
@@ -407,8 +424,8 @@ h4,
 h5 {
   margin: 1.5rem 0;
   font-weight: 600;
-  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
-  line-height: 1.2;
+  font-family: cursive !important;
+ line-height: 1.2;
   color: #404040;
 }
 
@@ -426,9 +443,7 @@ h3:not(:first-child) {
   margin-top: 2rem;
 }
 
-h1 {
-  font-size: 1.75rem;
-}
+h1 { color: rgb(37, 36, 36); font-family: 'Helvetica Neue', sans-serif; font-size: 275px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center;  }
 
 h2 {
   font-size: 1.5rem;
@@ -485,17 +500,21 @@ mark {
 }
 
 blockquote {
-  margin: 0 0 1.5rem 0;
+  max-width: 480px;
+  background-image: url(https://thumbs.dreamstime.com/b/white-smoke-puff-isolated-transparent-background-png-white-smoke-puff-isolated-transparent-background-png-vector-211293582.jpg) !important;
+  margin: 0 0 30px 30%;
   border-left: 16px solid #f0f0f0;
-  padding: 0 1.5rem;
-  font-size: 1.5rem;
+    font-size: 1.5rem;
 }
 
 blockquote cite {
   display: block;
-  margin-top: 1.5rem;
+  margin-top: .5rem;
+  margin-bottom: 1.16em;
   font-size: 1rem;
-  text-align: right;
+  font-family: cursive;
+  text-align: center;
+  color: white
 }
 
 pre {
@@ -783,7 +802,7 @@ dd {
 .button, a.button, button, [type=submit], [type=reset], [type=button] {
   -webkit-appearance: none;
   display: inline-block;
-  border: 1px solid #0366ee;
+  border: 1px solid;
   border-radius: 4px;
   background: #0366ee;
   color: #ffffff;
@@ -866,17 +885,142 @@ a.full-button {
   display: block;
   width: 100%;
 }
+blockquote {
+	position: relative;
+	
+	padding: 1.6em 2.4em .7em calc(1.4em + var(--quote-image-width));
+	font: italic 1.2rem var(--type-quote);
+	background: var(--quote-bg) no-repeat left / var(--quote-image-width);
+	border-radius: var(--border-rad);
+	border: 2px solid white;
+	box-shadow: 2px 2px 4px hsl(0 0% 0% / 20%);
+	text-indent: 1.6em;
+}
+
+@media (min-width: 768px) {
+	blockquote {
+    margin-top:40px;
+		
+	}
+}
+
+blockquote::before {
+	content: "";
+	pointer-events: none;
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: var(--border-rad);
+	box-shadow:
+		inset -2px -2px 1px hsl(0 0% 100%),
+		inset 2px 2px 4px hsl(0 0% 0% / 20%);
+}
+
+blockquote::after {
+	content: "❝";
+	position: absolute;
+	z-index: 1;
+	left: 50%;
+	top: -2px;
+	transform: translate(-50%, -50%);
+	width: 1.3em;
+	height: 1.3em;
+	background: white;
+	box-shadow: 0 4px 5px -1px hsla(0 0% 0% / 20%);
+	border-radius: 999px;
+	display: grid;
+	place-content: center;
+	padding-top: .5em;
+	color: var(--accent-color);
+	font-size: 36px;
+	font-style: normal;
+	text-indent: 0;
+}
+
+.blockquote-author-image {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: var(--quote-image-width);
+	height: 100%;
+	opacity: 0.75;
+	background: var(--accent-color) var(--image) no-repeat center / cover;
+	background-blend-mode: hard-light;
+	border-top-left-radius: var(--border-rad);
+	border-bottom-left-radius: var(--border-rad);
+}
+
+cite {
+	display: block;
+	margin-top: 30px;
+	text-indent: 0;
+	text-align: center;
+	font: bold .9rem var(--type-body);
+	text-transform: uppercase;
+	color: hsl(0 0% 20%);
+}
+
+@media (min-width: 768px) {
+	cite {
+		margin-left: calc(1rem - var(--quote-image-width));
+	}
+}
+
+.cite-last-name {
+	background: var(--accent-color);
+	color: var(--quote-bg);
+}
+
+
+
+
+.controls {
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	font-size: 0.8em;
+	opacity: 0.7;
+	transition: .2s;
+}
+
+.controls:hover,
+.controls:focus {
+	opacity: 1;
+}
+
+.controls label {
+	font-weight: bold;
+	text-transform: lowercase;
+}
+
+.controls input {
+	display: block;
+	width: 20%;
+	border: 0;
+	outline: none;
+	padding: 0;
+}
+input[type="button"] {
+  width: 20%;
+  margin-left: auto;
+  margin-right: 13px;
+  background: dimgray;
+}
+
 
 /**
  * Forms
  */
 [type=color], [type=date], [type=datetime], [type=datetime-local], [type=email], [type=month], [type=number], [type=password], [type=search], [type=tel], [type=text], [type=url], [type=week], [type=time], select, textarea {
   display: block;
-  border: 1px solid #dedede;
+  border: 1px solid #618970;
   border-radius: 4px;
   padding: 0.75rem;
   outline: none;
-  background: transparent;
+  background: white;
   margin-bottom: 0.5rem;
   font-size: 1rem;
   width: 100%;
@@ -929,6 +1073,7 @@ select::-ms-expand {
 label {
   font-weight: 600;
   max-width: 100%;
+  color: #d6cE15;
   display: block;
   margin: 1rem 0 0.5rem;
 }
@@ -1000,8 +1145,18 @@ th,
 td {
   text-align: left;
   padding: 0.4rem;
+  
 }
-
+button {
+  background: dimgray;
+}
+a{
+  color: #A4A75E;
+}
+td{
+  color: white;
+}
+th{color: #86C237}
 caption {
   padding: 1rem 0;
   caption-side: bottom;
